@@ -1,0 +1,28 @@
+.search-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mat-card {
+  margin: 0px 0px 20px 20px;
+  width: 40%;
+  display: inline-block;
+}
+.body-content h1 {
+  margin-bottom: 10px !important;
+}
+.body-content span {
+  margin-bottom: 10px !important;
+  display: block;
+  color: #a59d9d;
+}
+.body-content .mat-chip {
+  margin-bottom: 20px !important;
+}
+.example-button-row button {
+  margin-right: 10px;
+  min-width: 100px;
+}
+.clear-btn {
+  margin-left: -15px;
+}

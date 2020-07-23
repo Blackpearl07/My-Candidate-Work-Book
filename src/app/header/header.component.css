@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.mat-toolbar {
+    background-color: #3f51b5;
+}
+.mat-toolbar > span {
+    color: #fff;
+}
+.custom-bg-nav-item {
+    background-color: #ffd740;
+}

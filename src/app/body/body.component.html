@@ -1,0 +1,68 @@
+<div class="search-section">
+  <mat-form-field>
+    <input matInput [(ngModel)]="query" placeholder="Search Candidate.." />
+  </mat-form-field>
+  <button
+    mat-icon-button
+    matSuffix
+    class="clear-btn"
+    (click)="query = ''"
+    [style.visibility]="query ? 'visible' : 'hidden'"
+  >
+    X
+  </button>
+  <button
+    mat-mini-fab
+    color="primary"
+    class="add-candidate"
+    (click)="openDialog()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div class="body-content">
+  <mat-card
+    *ngFor="let temp of candidate | search: 'name,gender,city,status':query"
+  >
+    <h1>{{ temp.name }} ({{ temp.gender }})</h1>
+    <span>{{ temp.city }}</span>
+    <h3>
+      <b>Status : {{ temp.status }}</b>
+    </h3>
+    <mat-chip-list>
+      <mat-chip *ngIf="temp.skills.skillOne">{{
+        temp.skills.skillOne
+      }}</mat-chip>
+      <mat-chip *ngIf="temp.skills.skillTwo">{{
+        temp.skills.skillTwo
+      }}</mat-chip>
+      <mat-chip *ngIf="temp.skills.skillThree">{{
+        temp.skills.skillThree
+      }}</mat-chip>
+      <mat-chip *ngIf="temp.skills.skillFour">{{
+        temp.skills.skillFour
+      }}</mat-chip>
+      <mat-chip *ngIf="temp.skills.skillFive">{{
+        temp.skills.skillFive
+      }}</mat-chip>
+    </mat-chip-list>
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="selectCandidate(temp)"
+        [disabled]="temp.isSelected || temp.isRejected"
+      >
+        Select
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="rejectCandidate(temp)"
+        [disabled]="temp.isSelected || temp.isRejected"
+      >
+        Reject
+      </button>
+    </div>
+  </mat-card>
+</div>
